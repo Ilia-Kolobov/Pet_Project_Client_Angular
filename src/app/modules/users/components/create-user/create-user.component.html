@@ -1,0 +1,65 @@
+<div class="container">
+  <h1>Створення користувача</h1>
+  <form class="example-form" #projectForm>
+    <table class="example-full-width" cellspacing="0">
+      <tr>
+        <td>
+          <mat-form-field class="example-full-width">
+            <mat-label>Id</mat-label>
+            <input type="number" matInput placeholder="Введіть Id" [(ngModel)]="newUser.id" name="id">
+          </mat-form-field>
+        </td>
+        <td>
+          <mat-form-field class="example-full-width">
+            <mat-label>Ім'я</mat-label>
+            <input matInput placeholder="Введіть ім'я" [(ngModel)]="newUser.firstName" name="firstName">
+          </mat-form-field>
+        </td>
+        <td>
+          <mat-form-field class="example-full-width">
+            <mat-label>Прізвище</mat-label>
+            <input matInput placeholder="Введіть прізвище" [(ngModel)]="newUser.lastName" name="lastName">
+          </mat-form-field>
+        </td>
+      </tr>
+    </table>
+    <table class="example-full-width" cellspacing="0">
+      <tr>
+        <td>
+          <mat-form-field class="example-full-width">
+            <mat-label>Email</mat-label>
+            <!-- <input matInput placeholder="Ex. pat@example.com" [(ngModel)]="newUser.email" name="email"> -->
+            <input matInput [(ngModel)]="newUser.email" name="email" [formControl]="emailFormControl" [errorStateMatcher]="matcher"
+              placeholder="example@example.com"  >
+            <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
+              Please enter a valid email address
+            </mat-error>
+            <mat-error *ngIf="emailFormControl.hasError('required')">
+              Email is <strong>required</strong>
+            </mat-error>
+          </mat-form-field>
+        </td>
+        <td>
+          <mat-form-field class="example-full-width">
+            <mat-label>Id команди</mat-label>
+            <input type="number" matInput placeholder="Введіть Id команди" [(ngModel)]="newUser.teamId" name="teamId">
+          </mat-form-field>
+        </td>
+        <td>
+          <mat-form-field class="example-full-width">
+            <mat-label>Дата народження</mat-label>
+            <input matInput [matDatepicker]="picker" [(ngModel)]="newUser.birthday" name="birthday">
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+          </mat-form-field>
+        </td>
+
+      </tr>
+    </table>
+    <div mat-dialog-actions>
+      <button mat-raised-button color="primary" (click)="createUser()">Створити</button>
+      <button mat-raised-button routerLink="../">Повернутись</button>
+    </div>
+  </form>
+
+</div>

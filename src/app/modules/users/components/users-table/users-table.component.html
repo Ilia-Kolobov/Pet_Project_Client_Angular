@@ -1,0 +1,42 @@
+<div>
+    <div class="example-container mat-elevation-z8">
+      <table mat-table [dataSource]="dataSource">
+        <!-- Id Column -->
+        <ng-container matColumnDef="id">
+          <th mat-header-cell *matHeaderCellDef> Id </th>
+          <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+        </ng-container>
+        <!-- firstName Column -->
+        <ng-container matColumnDef="firstName">
+          <th mat-header-cell *matHeaderCellDef> Ім'я </th>
+          <td mat-cell *matCellDef="let element"> {{element.firstName}} </td>
+        </ng-container>
+        <!-- lastName Column -->
+        <ng-container matColumnDef="lastName">
+          <th mat-header-cell *matHeaderCellDef> Прізвище </th>
+          <td mat-cell *matCellDef="let element"> {{element.lastName}} </td>
+        </ng-container>
+         <!-- email Column -->
+         <ng-container matColumnDef="email">
+          <th mat-header-cell *matHeaderCellDef> Email </th>
+          <td mat-cell *matCellDef="let element"> {{element.email}} </td>
+        </ng-container>
+        <!-- birthday Column -->
+        <ng-container matColumnDef="birthday">
+            <th mat-header-cell *matHeaderCellDef> Дата народження </th>
+            <td mat-cell *matCellDef="let element"> {{element.birthday | ukrDate}} </td>
+          </ng-container>
+          <!-- registeredAt Column -->
+          <ng-container matColumnDef="registeredAt">
+            <th mat-header-cell *matHeaderCellDef> Дата реєстрації </th>
+            <td mat-cell *matCellDef="let element"> {{element.registeredAt | ukrDate}} </td>
+          </ng-container>
+          <!-- teamId Column -->
+        <ng-container matColumnDef="teamId">
+            <th mat-header-cell *matHeaderCellDef> Id команди </th>
+            <td mat-cell *matCellDef="let element"> {{element.teamId}} </td>
+          </ng-container>
+        <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      </table>
+    </div>

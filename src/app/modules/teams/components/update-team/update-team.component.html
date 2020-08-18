@@ -1,0 +1,55 @@
+<div class="container">
+    <h1>Редагування проекту</h1>
+      <form class="example-form" #projectForm >
+        <table class="example-full-width" cellspacing="0">
+          <tr>
+            <td>
+              <mat-form-field class="example-full-width">
+                <mat-label>Id</mat-label>
+                <input type="number"  matInput placeholder="Введіть Id" [(ngModel)]="newProject.id" name="id">
+              </mat-form-field>
+            </td>
+            <td>
+              <mat-form-field class="example-full-width">
+                <mat-label>Назва проекта</mat-label>
+                <input matInput  placeholder="Введіть назву проекта" [(ngModel)]="newProject.name" name="name">
+              </mat-form-field>
+            </td>
+          </tr>
+        </table>
+        <mat-form-field class="example-full-width">
+          <mat-label>Опис</mat-label>
+          <textarea matInput  placeholder="Введіть опис проекту" [(ngModel)]="newProject.description" name="description"></textarea>
+        </mat-form-field>
+      
+        <table class="example-full-width" cellspacing="0">
+          <tr>
+            <td>
+              <mat-form-field class="example-full-width">
+                <mat-label>Id автора</mat-label>
+                <input type="number"  matInput placeholder="Введіть Id автора" [(ngModel)]="newProject.authorId" name="authorId">
+              </mat-form-field>
+            </td>
+            <td>
+              <mat-form-field class="example-full-width">
+                <mat-label>Id команди</mat-label>
+                <input type="number"  matInput placeholder="Введіть Id команди" [(ngModel)]="newProject.teamId" name="teamId">
+              </mat-form-field>
+            </td>
+            <td>
+              <mat-form-field class="example-full-width">
+                <mat-label>Дедлайн</mat-label>
+                <input  matInput [matDatepicker]="picker" [(ngModel)]="newProject.deadline" name="deadline">
+                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+              </mat-form-field>
+            </td>
+          </tr>
+        </table>
+        <div mat-dialog-actions>
+          <button mat-raised-button color="primary" (click)="updateProject()">Редагувати</button>  
+          <button mat-raised-button routerLink = "../">Повернутись</button>
+      </div>
+      </form>
+      
+      </div>

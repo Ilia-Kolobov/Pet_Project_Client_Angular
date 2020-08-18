@@ -1,0 +1,29 @@
+<div class="container">
+    <div class="title">
+      <span>Користувачі</span>
+    </div>
+    <div class="content">
+      <mat-grid-list cols="3" rowHeight="600px">
+        <mat-grid-tile colspan="2">
+            <app-users-table [users] = "users"></app-users-table>
+        </mat-grid-tile>
+        <mat-grid-tile>
+          <div class="control-buttons">
+            <div class="buttons-with-input-field">
+              <mat-form-field class="example-full-width">
+                <mat-label>Id користувача</mat-label>
+                <input type="number" matInput placeholder="Введіть Id" #id>
+              </mat-form-field>
+              <button mat-raised-button (click)= "getProject(id.value)">Знайти</button>
+              <button mat-raised-button color="primary" (click)="deleteProject(id.value)">Видалити</button>
+            </div>
+            <div class="buttons-without-input-field">
+              <button mat-raised-button color="primary" (click)="update()">Отримати всіх існуючих користувачів</button>
+              <button mat-raised-button color="primary" routerLink="./create">Створити користувача</button>
+              <button mat-raised-button color="primary" routerLink="./update">Редагувати користувача</button>
+            </div>
+          </div>
+        </mat-grid-tile>
+      </mat-grid-list>
+    </div>
+  </div>

@@ -1,0 +1,23 @@
+.example-container {
+    height: 600px;
+    overflow: auto;
+   
+  }
+  
+    table{
+      width: 100%;
+      background-color: rgba(255, 255, 255, 0.5);
+      
+    }
+    .mat-header-cell{
+      background-color: white;
+      white-space: nowrap;
+  
+    }
+    .mat-cell{
+      font-weight: normal;
+    } 
+  
+    .mat-table :nth-child(n){
+      padding: 20px;
+    }

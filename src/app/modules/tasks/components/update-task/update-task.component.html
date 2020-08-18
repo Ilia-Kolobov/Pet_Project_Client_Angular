@@ -1,0 +1,55 @@
+<div class="container">
+    <h1>Редагування завдання</h1>
+  <form class="example-form" #taskForm >
+    <table class="example-full-width" cellspacing="0">
+      <tr>
+        <td>
+          <mat-form-field class="example-full-width">
+            <mat-label>Id</mat-label>
+            <input type="number"  matInput placeholder="Введіть Id" [(ngModel)]="newTask.id" name="id">
+          </mat-form-field> 
+        </td>
+        <td>
+          <mat-form-field class="example-full-width">
+            <mat-label>Назва завдання</mat-label>
+            <input matInput  placeholder="Введіть назву проекта" [(ngModel)]="newTask.name" name="name">
+          </mat-form-field>
+        </td>
+      </tr>
+    </table>
+    <mat-form-field class="example-full-width">
+      <mat-label>Опис</mat-label>
+      <textarea matInput  placeholder="Введіть опис проекту" [(ngModel)]="newTask.description" name="description"></textarea>
+    </mat-form-field>
+  
+    <table class="example-full-width" cellspacing="0">
+      <tr>
+        <td>
+          <mat-form-field class="example-full-width">
+            <mat-label>Id проекту</mat-label>
+            <input type="number"  matInput placeholder="Введіть Id автора" [(ngModel)]="newTask.projectId" name="projectId">
+          </mat-form-field>
+        </td>
+        <td>
+          <mat-form-field class="example-full-width">
+            <mat-label>Id виконавця</mat-label>
+            <input type="number"  matInput placeholder="Введіть Id команди" [(ngModel)]="newTask.performerId" name="performerId">
+          </mat-form-field>
+        </td>
+        <td>
+          <mat-form-field class="example-full-width">
+            <mat-label>Дата заверщення</mat-label>
+            <input  matInput [matDatepicker]="picker" [(ngModel)]="newTask.finishedAt" name="finishedAt">
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+          </mat-form-field>
+        </td>
+      </tr>
+    </table>
+    <div mat-dialog-actions>
+      <button mat-raised-button color="primary" (click)="updateTask()">Редагувати</button>  
+      <button mat-raised-button routerLink = "../">Повернутись</button>
+  </div>
+  </form>
+  </div>
+  
